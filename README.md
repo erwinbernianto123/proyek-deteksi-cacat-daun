@@ -42,12 +42,10 @@ Butuh Python 3 dan pip. Langkah di VS Code (terminal: Terminal, New Terminal):
 git clone https://github.com/erwinbernianto123/proyek-deteksi-cacat-daun.git
 cd proyek-deteksi-cacat-daun
 
-python -m venv .venv
-.venv\Scripts\activate          # Windows
-# source .venv/bin/activate     # macOS / Linux
-
 pip install -r requirements.txt
 ```
+
+Jika `pip` tidak dikenali, pakai `python -m pip install -r requirements.txt` (di Windows bisa juga `py -m pip install -r requirements.txt`).
 
 Pustaka yang dipakai: numpy, opencv-python, scikit-image, matplotlib, pandas.
 
