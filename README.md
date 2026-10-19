@@ -71,14 +71,14 @@ Semua perintah dijalankan dari folder utama repository.
 **Satu perintah untuk menjalankan semuanya dan mencetak tabel metrik** (keseluruhan dan per kondisi cahaya):
 
 ```bash
-python src/run_all.py --split test      # angka akhir untuk laporan
+python src/run_all.py --split test      # angka akhir untuk laporan (parameter bawaan sudah dikunci)
 python src/run_all.py --split dev       # untuk menyetel parameter
 ```
 
 Pilihan tambahan:
 
 ```bash
-python src/run_all.py --split test --feature hue --blur median
+python src/run_all.py --split dev --feature a_star --blur median   # contoh pembanding (hanya dev)
 python src/run_all.py --split dev --ops scratch     # memakai operasi buatan sendiri
 python src/run_all.py --split test --no-save-masks  # tidak menyimpan mask prediksi
 ```
@@ -109,8 +109,8 @@ python src/debug_view.py --split dev --limit 5
 
 1. **Pra-proses**: resize (sisi terpanjang maksimal 1024 px) dan filter Gaussian atau median.
 2. **Perbaikan kontras**: CLAHE pada kanal L (ruang warna Lab).
-3. **Segmentasi**: mask daun dengan Otsu dan hole filling, lalu mask cacat dari fitur a* (atau hue) dengan ambang Otsu di dalam area daun.
-4. **Morfologi**: opening, closing, dan pembuangan komponen cacat yang sangat kecil.
+3. **Segmentasi**: mask daun dengan Otsu, hole filling, dan convex hull; lalu mask cacat dari fitur hue (`hue_abs`): piksel di dalam area daun dengan hue di bawah ambang tetap (30) dianggap cacat, karena daun sehat berwarna hijau. Fitur `a_star` dan `hue` (relatif terhadap median daun) tersedia sebagai pembanding.
+4. **Morfologi**: opening, closing, dan pembuangan komponen cacat yang lebih kecil dari 300 piksel.
 5. **Pengukuran**: bounding box dan luas cacat (piksel).
 
 Fungsi utama: `segment_leaf_defect(image_bgr, params=None)` di `src/pipeline.py`. Nilai bawaan semua parameter ada di `DEFAULT_PARAMS` dan bisa diganti lewat argumen `params`.
