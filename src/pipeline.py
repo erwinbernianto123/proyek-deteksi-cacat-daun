@@ -22,6 +22,14 @@ Antarmuka utama (kontrak untuk seluruh tim):
     hasil["area_ratio"] : area cacat / area daun (0..1)
     hasil["debug"]      : dict citra antara (untuk debug_view.py)
 
+Fitur cacat ("feature"):
+  hue_abs : cacat bila hue < hue_thr (hijau sehat punya hue ~35-60). Absolut,
+            jadi tetap bekerja saat SELURUH daun kering/menguning.  (default)
+  a_star  : a* Lab relatif terhadap median daun + Otsu.
+  hue     : selisih hue terhadap median daun + Otsu.
+  Dua yang terakhir gagal bila seluruh daun cacat, karena median daun ikut cacat.
+  Nilai default ditetapkan dari hasil pada split dev saja.
+
 Parameter bisa diganti lewat dict `params` (lihat DEFAULT_PARAMS), jadi
 experiments.py (Gaussian vs median, a* vs hue, offset Otsu) tidak perlu
 mengubah isi file ini:  segment_leaf_defect(img, {"blur": "median"}).
@@ -49,19 +57,20 @@ DEFAULT_PARAMS = {
     "leaf_offset": 0,        # geser ambang Otsu saturation
     "leaf_min_area_frac": 0.005,  # komponen daun minimal (fraksi luas citra)
     "leaf_min_score": 1000.0,  # skor komponen minimal sebelum memakai kandidat cadangan
-    "leaf_use_hull": False,  # perluas mask daun ke convex hull (menangkap cacat di tepi)
-    "leaf_border_erode": 5,  # kikis tepi daun agar tepi/bayangan tidak dianggap cacat
+    "leaf_use_hull": True,   # perluas mask daun ke convex hull (menangkap cacat di tepi)
+    "leaf_border_erode": 2,  # kikis tepi daun agar tepi/bayangan tidak dianggap cacat
 
     # tahap 3b: mask cacat
-    "feature": "a_star",     # "a_star" | "hue"
+    "feature": "hue_abs",    # "hue_abs" | "a_star" | "hue"  (lihat catatan di atas)
     "otsu_offset": 0,        # geser ambang Otsu fitur cacat
+    "hue_thr": 30,           # fitur "hue_abs": cacat bila hue (0..180) < hue_thr (hijau sehat ~35-60)
     "min_delta_a": 8,        # a* minimal di atas median daun supaya dianggap cacat
     "min_delta_hue": 14,     # selisih hue minimal (skala OpenCV 0..180) untuk "hue"
 
     # tahap 4: morfologi
     "open_ksize": 3,
     "close_ksize": 5,
-    "min_defect_area": 30,   # komponen cacat lebih kecil dari ini (piksel) dibuang
+    "min_defect_area": 300,  # komponen cacat lebih kecil dari ini (piksel) dibuang
 
     # operasi dasar: "opencv" atau "scratch" (src/scratch_ops.py buatan Rasmi)
     "ops": "opencv",
@@ -299,6 +308,18 @@ def defect_score(img_bgr, leaf_mask, p):
 
 def segment_defect(img_bgr, leaf_mask, p):
     ops = p["ops"]
+
+    # fitur absolut: daun sehat selalu hijau, jadi warna non-hijau = cacat.
+    # Berbeda dengan a_star/hue (relatif terhadap median daun) yang gagal bila
+    # SELURUH daun cacat (daun kering/menguning).
+    if p["feature"] == "hue_abs":
+        hue = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2HSV)[:, :, 0]
+        search = _erode(leaf_mask, int(p["leaf_border_erode"]) * 2 + 1, ops)
+        if search.sum() == 0:
+            search = leaf_mask
+        mask = np.where((hue < p["hue_thr"]) & (search > 0), 255, 0).astype(np.uint8)
+        return mask, hue, float(p["hue_thr"])
+
     score, floor = defect_score(img_bgr, leaf_mask, p)
 
     # area pencarian: daun dikikis sedikit agar tepi daun tidak ikut

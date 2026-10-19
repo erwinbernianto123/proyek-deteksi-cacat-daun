@@ -31,7 +31,7 @@ def main():
     ap = argparse.ArgumentParser(description="Jalankan pipeline + evaluasi pada satu split")
     ap.add_argument("--split", choices=["dev", "test", "all"], required=True)
     ap.add_argument("--blur", choices=["gaussian", "median"], default=DEFAULT_PARAMS["blur"])
-    ap.add_argument("--feature", choices=["a_star", "hue"], default=DEFAULT_PARAMS["feature"])
+    ap.add_argument("--feature", choices=["hue_abs", "a_star", "hue"], default=DEFAULT_PARAMS["feature"])
     ap.add_argument("--ops", choices=["opencv", "scratch"], default=DEFAULT_PARAMS["ops"],
                     help="opencv = fungsi OpenCV, scratch = src/scratch_ops.py")
     ap.add_argument("--otsu-offset", type=float, default=DEFAULT_PARAMS["otsu_offset"])

@@ -104,7 +104,7 @@ def main():
     ap.add_argument("--split", choices=["dev", "test", "all"], help="ambil file dari metadata.csv")
     ap.add_argument("--limit", type=int, default=0, help="batasi jumlah file untuk --split")
     ap.add_argument("--blur", choices=["gaussian", "median"], default=DEFAULT_PARAMS["blur"])
-    ap.add_argument("--feature", choices=["a_star", "hue"], default=DEFAULT_PARAMS["feature"])
+    ap.add_argument("--feature", choices=["hue_abs", "a_star", "hue"], default=DEFAULT_PARAMS["feature"])
     ap.add_argument("--ops", choices=["opencv", "scratch"], default=DEFAULT_PARAMS["ops"])
     ap.add_argument("--out", default=str(ROOT / "results" / "debug"))
     args = ap.parse_args()
