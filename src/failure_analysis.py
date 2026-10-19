@@ -1,11 +1,16 @@
 
 """
-failure_analysis.py  --  Analisis kegagalan: 3 citra TEST dengan IoU terendah.
+failure_analysis.py  --  Analisis kegagalan pada 3 citra TEST dengan jenis kegagalan berbeda.
  
 Jalankan SETELAH parameter pipeline dikunci (jangan dipakai untuk menyetel
 parameter; data test hanya untuk angka akhir dan analisis ini):
  
-    python src/failure_analysis.py
+    python src/failure_analysis.py                      # 3 kasus bawaan (arahan ketua)
+    python src/failure_analysis.py C_013 B_012 B_011    # pilih citra sendiri (tanpa .jpg juga boleh)
+    python src/failure_analysis.py --worst              # 3 IoU terendah (hati-hati: banyak seri di 0)
+ 
+Pemilihan kasus: banyak citra test seri di IoU 0, jadi "3 terendah" tidak bermakna.
+Kasus dipilih mewakili tiga JENIS kegagalan berbeda (lihat DEFAULT_CASES dan LABELS).
  
 Keluaran:
     results/failure/failure_<urutan>_<nama>.png   panel tahap pipeline + peta galat
@@ -20,6 +25,7 @@ diuji pada data dev, bukan dipakai untuk menyetel parameter di data test.
 Catatan fitur default "hue_abs": cacat bila hue < hue_thr (default 30).
 Di result["debug"], "score" berisi kanal hue (0-180) dan "threshold" = hue_thr.
 """
+import argparse
 import csv
 import sys
 from pathlib import Path
@@ -39,6 +45,17 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "results" / "failure"
 OUT_CSV = ROOT / "results" / "failure_analysis.csv"
 N_WORST = 3          # minimal 3 sesuai brief
+ 
+# Kasus bawaan: tiga jenis kegagalan berbeda (arahan ketua setelah split test).
+DEFAULT_CASES = ["B_011", "C_011", "A_014"]
+# Jenis kegagalan tiap kandidat (alternatif: C_013 setara C_011, B_012 setara A_014).
+LABELS = {
+    "B_011": "mask daun mengambil latar",
+    "C_011": "daun sehat di foto gelap dianggap cacat",
+    "C_013": "daun sehat di foto gelap dianggap cacat",
+    "A_014": "cacat besar terlewat",
+    "B_012": "cacat besar terlewat",
+}
 NAN = float("nan")
  
  
@@ -230,9 +247,25 @@ def render(img, res, pred, gtb, title):
  
  
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("files", nargs="*", help="nama citra test (mis. B_011 atau B_011.jpg)")
+    ap.add_argument("--worst", action="store_true", help="pakai N_WORST IoU terendah")
+    args = ap.parse_args()
+ 
     rows = evaluate_split("test")          # SELALU test
     assert rows and all(r["split"] == "test" for r in rows), "data test kosong / salah split"
-    worst = sorted(rows, key=lambda r: r["iou"])[:N_WORST]
+    if args.worst:
+        worst = sorted(rows, key=lambda r: r["iou"])[:N_WORST]
+    else:
+        wanted = args.files or DEFAULT_CASES
+        by_stem = {Path(r["file"]).stem: r for r in rows}
+        missing = [w for w in wanted if Path(w).stem not in by_stem]
+        if missing:
+            sys.exit(f"Citra tidak ada di split test: {missing}. "
+                     f"Contoh yang ada: {sorted(by_stem)[:8]} ...")
+        worst = [by_stem[Path(w).stem] for w in wanted]
+    n0 = sum(1 for r in rows if r["iou"] == 0)
+    print(f"Info: {n0} dari {len(rows)} citra test punya IoU = 0 (catat di laporan).")
  
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     table = []
@@ -243,8 +276,10 @@ def main():
         res = segment_leaf_defect(img)     # parameter = DEFAULT_PARAMS (harus sudah final)
         rec, pred, gtb = analyse(r, img, gt, res)
         rec["urutan"] = rank
+        rec["jenis_kegagalan"] = LABELS.get(Path(name).stem, "")
         table.append(rec)
-        title = f"#{rank} {name} | kondisi {r['kondisi']} | IoU={rec['iou']:.3f} | {rec['tahap_dugaan']}"
+        title = (f"#{rank} {name} | kondisi {r['kondisi']} | IoU={rec['iou']:.3f} | "
+                 f"{rec['jenis_kegagalan'] or rec['tahap_dugaan']}")
         fig = render(img, res, pred, gtb, title)
         out = OUT_DIR / f"failure_{rank}_{Path(name).stem}.png"
         fig.savefig(out, dpi=110)
@@ -256,7 +291,7 @@ def main():
         print(f"    usulan       : {rec['usulan_perbaikan']}")
         print(f"    gambar       : {out.relative_to(ROOT)}")
  
-    cols = ["urutan", "file", "kondisi", "iou", "dice", "precision", "recall",
+    cols = ["urutan", "file", "kondisi", "jenis_kegagalan", "iou", "dice", "precision", "recall",
             "area_pred", "area_gt", "gt_di_dalam_daun", "iou_sebelum_morfologi",
             "kecerahan_daun", "pemisahan_skor", "tahap_dugaan", "penyebab", "usulan_perbaikan"]
     with open(OUT_CSV, "w", newline="", encoding="utf-8-sig") as f:
@@ -266,10 +301,6 @@ def main():
     print("\nTersimpan:", OUT_CSV.relative_to(ROOT))
     print("Catatan: 'penyebab' dan 'usulan_perbaikan' adalah draf dari angka. Cocokkan dengan "
           "gambar di results/failure/ dan sunting CSV bila perlu.")
- 
- 
-if __name__ == "__main__":
-    main()
  
  
 if __name__ == "__main__":
