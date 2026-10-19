@@ -1,0 +1,331 @@
+eksperimen,metode,file,kondisi,split,iou,dice,precision,recall,area_pred,area_gt,has_defect,time_s
+Pra-proses: Gaussian vs median,gaussian,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,3697,0,False,0.3034
+Pra-proses: Gaussian vs median,gaussian,A_002.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.2191
+Pra-proses: Gaussian vs median,gaussian,A_003.jpg,A,dev,0.8023,0.8903,0.974,0.8198,4961,5894,True,0.26
+Pra-proses: Gaussian vs median,gaussian,A_004.jpg,A,dev,0.9272,0.9622,0.9429,0.9823,57569,55260,True,0.1658
+Pra-proses: Gaussian vs median,gaussian,A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1816
+Pra-proses: Gaussian vs median,gaussian,A_006.jpg,A,dev,0.3683,0.5383,0.3777,0.9365,28424,11464,True,0.2083
+Pra-proses: Gaussian vs median,gaussian,A_007.jpg,A,dev,0.3674,0.5374,0.5797,0.5009,14136,16358,True,0.1395
+Pra-proses: Gaussian vs median,gaussian,A_008.jpg,A,dev,0.4791,0.6479,0.5172,0.8668,31227,18635,True,0.1435
+Pra-proses: Gaussian vs median,gaussian,A_009.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1878
+Pra-proses: Gaussian vs median,gaussian,A_010.jpg,A,dev,0.8899,0.9417,0.9664,0.9183,16377,17235,True,0.2224
+Pra-proses: Gaussian vs median,gaussian,A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1576
+Pra-proses: Gaussian vs median,gaussian,A_012.jpg,A,dev,0.7844,0.8792,0.9796,0.7974,17317,21273,True,0.1973
+Pra-proses: Gaussian vs median,gaussian,B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1409
+Pra-proses: Gaussian vs median,gaussian,B_002.jpg,B,dev,0.0561,0.1062,1.0,0.0561,806,14368,True,0.1028
+Pra-proses: Gaussian vs median,gaussian,B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.1366
+Pra-proses: Gaussian vs median,gaussian,B_004.jpg,B,dev,0.0992,0.1805,0.1124,0.4589,15699,3844,True,0.1272
+Pra-proses: Gaussian vs median,gaussian,B_005.jpg,B,dev,0.2939,0.4543,0.4508,0.4578,1697,1671,True,0.1291
+Pra-proses: Gaussian vs median,gaussian,B_006.jpg,B,dev,0.328,0.494,0.5564,0.4441,3449,4321,True,0.1371
+Pra-proses: Gaussian vs median,gaussian,B_007.jpg,B,dev,0.0,0.0,0.0,0.0,6058,0,False,0.1271
+Pra-proses: Gaussian vs median,gaussian,B_008.jpg,B,dev,0.0,0.0,0.0,0.0,3281,0,False,0.1363
+Pra-proses: Gaussian vs median,gaussian,B_009.jpg,B,dev,0.8449,0.9159,0.9172,0.9147,19943,19996,True,0.1082
+Pra-proses: Gaussian vs median,gaussian,C_001.jpg,C,dev,0.0,0.0,0.0,0.0,8972,0,False,0.1495
+Pra-proses: Gaussian vs median,gaussian,C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1254
+Pra-proses: Gaussian vs median,gaussian,C_003.jpg,C,dev,0.4344,0.6057,0.4589,0.8908,3378,1740,True,0.1347
+Pra-proses: Gaussian vs median,gaussian,C_004.jpg,C,dev,0.1333,0.2352,0.2741,0.2059,1036,1379,True,0.1301
+Pra-proses: Gaussian vs median,gaussian,C_005.jpg,C,dev,0.1084,0.1956,0.1096,0.91,4060,489,True,0.1345
+Pra-proses: Gaussian vs median,gaussian,C_006.jpg,C,dev,0.5768,0.7316,0.6284,0.8754,3342,2399,True,0.1333
+Pra-proses: Gaussian vs median,gaussian,C_007.jpg,C,dev,0.9521,0.9755,0.9706,0.9804,83954,83113,True,0.1394
+Pra-proses: Gaussian vs median,gaussian,C_008.jpg,C,dev,0.6358,0.7774,0.6639,0.9376,14467,10244,True,0.1328
+Pra-proses: Gaussian vs median,gaussian,C_009.jpg,C,dev,0.0,0.0,0.0,0.0,928,444,True,0.1487
+Pra-proses: Gaussian vs median,median,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,3759,0,False,0.1078
+Pra-proses: Gaussian vs median,median,A_002.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1367
+Pra-proses: Gaussian vs median,median,A_003.jpg,A,dev,0.7915,0.8836,0.9889,0.7986,4760,5894,True,0.1326
+Pra-proses: Gaussian vs median,median,A_004.jpg,A,dev,0.9286,0.963,0.9409,0.986,57909,55260,True,0.1303
+Pra-proses: Gaussian vs median,median,A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.13
+Pra-proses: Gaussian vs median,median,A_006.jpg,A,dev,0.3642,0.534,0.3732,0.938,28813,11464,True,0.1567
+Pra-proses: Gaussian vs median,median,A_007.jpg,A,dev,0.3665,0.5364,0.5837,0.4962,13905,16358,True,0.1558
+Pra-proses: Gaussian vs median,median,A_008.jpg,A,dev,0.6938,0.8192,0.987,0.7002,13221,18635,True,0.145
+Pra-proses: Gaussian vs median,median,A_009.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1867
+Pra-proses: Gaussian vs median,median,A_010.jpg,A,dev,0.8837,0.9382,0.9661,0.9119,16268,17235,True,0.185
+Pra-proses: Gaussian vs median,median,A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.2082
+Pra-proses: Gaussian vs median,median,A_012.jpg,A,dev,0.7903,0.8829,0.9755,0.8063,17584,21273,True,0.2441
+Pra-proses: Gaussian vs median,median,B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1949
+Pra-proses: Gaussian vs median,median,B_002.jpg,B,dev,0.0562,0.1065,1.0,0.0562,808,14368,True,0.1582
+Pra-proses: Gaussian vs median,median,B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.16
+Pra-proses: Gaussian vs median,median,B_004.jpg,B,dev,0.0987,0.1797,0.1119,0.4555,15644,3844,True,0.1392
+Pra-proses: Gaussian vs median,median,B_005.jpg,B,dev,0.0446,0.0854,0.0561,0.1783,5311,1671,True,0.1515
+Pra-proses: Gaussian vs median,median,B_006.jpg,B,dev,0.3322,0.4988,0.568,0.4446,3382,4321,True,0.1462
+Pra-proses: Gaussian vs median,median,B_007.jpg,B,dev,0.0,0.0,0.0,0.0,6034,0,False,0.1281
+Pra-proses: Gaussian vs median,median,B_008.jpg,B,dev,0.0,0.0,0.0,0.0,3181,0,False,0.1356
+Pra-proses: Gaussian vs median,median,B_009.jpg,B,dev,0.8781,0.9351,0.963,0.9087,18869,19996,True,0.1022
+Pra-proses: Gaussian vs median,median,C_001.jpg,C,dev,0.0,0.0,0.0,0.0,9626,0,False,0.1341
+Pra-proses: Gaussian vs median,median,C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1587
+Pra-proses: Gaussian vs median,median,C_003.jpg,C,dev,0.4004,0.5719,0.4234,0.8805,3618,1740,True,0.133
+Pra-proses: Gaussian vs median,median,C_004.jpg,C,dev,0.0818,0.1512,0.1174,0.2125,2496,1379,True,0.132
+Pra-proses: Gaussian vs median,median,C_005.jpg,C,dev,0.1145,0.2054,0.1158,0.9059,3824,489,True,0.131
+Pra-proses: Gaussian vs median,median,C_006.jpg,C,dev,0.5763,0.7312,0.6284,0.8741,3337,2399,True,0.1338
+Pra-proses: Gaussian vs median,median,C_007.jpg,C,dev,0.9566,0.9778,0.9742,0.9814,83721,83113,True,0.1249
+Pra-proses: Gaussian vs median,median,C_008.jpg,C,dev,0.6588,0.7943,0.6838,0.9474,14193,10244,True,0.1714
+Pra-proses: Gaussian vs median,median,C_009.jpg,C,dev,0.0,0.0,0.0,0.0,1306,444,True,0.1565
+Ambang cacat: Otsu vs median_offset,otsu,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,4708,0,False,0.1157
+Ambang cacat: Otsu vs median_offset,otsu,A_002.jpg,A,dev,0.0,0.0,0.0,0.0,2076,0,False,0.1441
+Ambang cacat: Otsu vs median_offset,otsu,A_003.jpg,A,dev,0.2216,0.3628,1.0,0.2216,1306,5894,True,0.1427
+Ambang cacat: Otsu vs median_offset,otsu,A_004.jpg,A,dev,0.5895,0.7417,0.9984,0.59,32658,55260,True,0.1407
+Ambang cacat: Otsu vs median_offset,otsu,A_005.jpg,A,dev,0.0,0.0,0.0,0.0,7610,0,False,0.139
+Ambang cacat: Otsu vs median_offset,otsu,A_006.jpg,A,dev,0.3962,0.5675,0.4664,0.7245,17807,11464,True,0.1455
+Ambang cacat: Otsu vs median_offset,otsu,A_007.jpg,A,dev,0.3886,0.5597,0.6608,0.4855,12018,16358,True,0.1237
+Ambang cacat: Otsu vs median_offset,otsu,A_008.jpg,A,dev,0.362,0.5315,0.4451,0.6597,27619,18635,True,0.1355
+Ambang cacat: Otsu vs median_offset,otsu,A_009.jpg,A,dev,0.0,0.0,0.0,0.0,4818,0,False,0.1423
+Ambang cacat: Otsu vs median_offset,otsu,A_010.jpg,A,dev,0.6975,0.8218,0.9883,0.7033,12265,17235,True,0.1639
+Ambang cacat: Otsu vs median_offset,otsu,A_011.jpg,A,dev,0.0,0.0,0.0,0.0,33069,0,False,0.1029
+Ambang cacat: Otsu vs median_offset,otsu,A_012.jpg,A,dev,0.6434,0.783,1.0,0.6434,13688,21273,True,0.1339
+Ambang cacat: Otsu vs median_offset,otsu,B_001.jpg,B,dev,0.0,0.0,0.0,0.0,13808,0,False,0.1049
+Ambang cacat: Otsu vs median_offset,otsu,B_002.jpg,B,dev,0.7742,0.8727,0.8863,0.8595,13934,14368,True,0.1131
+Ambang cacat: Otsu vs median_offset,otsu,B_003.jpg,B,dev,0.0418,0.0803,0.042,0.9202,26088,1190,True,0.165
+Ambang cacat: Otsu vs median_offset,otsu,B_004.jpg,B,dev,0.0722,0.1346,0.0781,0.4875,24003,3844,True,0.1308
+Ambang cacat: Otsu vs median_offset,otsu,B_005.jpg,B,dev,0.0701,0.131,0.0737,0.5877,13319,1671,True,0.1313
+Ambang cacat: Otsu vs median_offset,otsu,B_006.jpg,B,dev,0.1404,0.2462,0.168,0.461,11859,4321,True,0.1382
+Ambang cacat: Otsu vs median_offset,otsu,B_007.jpg,B,dev,0.0,0.0,0.0,0.0,16497,0,False,0.1313
+Ambang cacat: Otsu vs median_offset,otsu,B_008.jpg,B,dev,0.0,0.0,0.0,0.0,8193,0,False,0.1382
+Ambang cacat: Otsu vs median_offset,otsu,B_009.jpg,B,dev,0.3588,0.5281,0.8374,0.3857,9210,19996,True,0.098
+Ambang cacat: Otsu vs median_offset,otsu,C_001.jpg,C,dev,0.0,0.0,0.0,0.0,128366,0,False,0.164
+Ambang cacat: Otsu vs median_offset,otsu,C_002.jpg,C,dev,0.0,0.0,0.0,0.0,21412,0,False,0.1512
+Ambang cacat: Otsu vs median_offset,otsu,C_003.jpg,C,dev,0.3464,0.5146,0.3728,0.8305,3876,1740,True,0.1409
+Ambang cacat: Otsu vs median_offset,otsu,C_004.jpg,C,dev,0.0317,0.0614,0.0327,0.4967,20944,1379,True,0.149
+Ambang cacat: Otsu vs median_offset,otsu,C_005.jpg,C,dev,0.0331,0.064,0.0332,0.9162,13509,489,True,0.1401
+Ambang cacat: Otsu vs median_offset,otsu,C_006.jpg,C,dev,0.1559,0.2697,0.1587,0.8979,13575,2399,True,0.1358
+Ambang cacat: Otsu vs median_offset,otsu,C_007.jpg,C,dev,0.601,0.7508,0.9962,0.6024,50258,83113,True,0.125
+Ambang cacat: Otsu vs median_offset,otsu,C_008.jpg,C,dev,0.4855,0.6536,0.5119,0.9038,18088,10244,True,0.1348
+Ambang cacat: Otsu vs median_offset,otsu,C_009.jpg,C,dev,0.0,0.0,0.0,0.0,21021,444,True,0.1256
+Ambang cacat: Otsu vs median_offset,median_offset,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,4839,0,False,0.1065
+Ambang cacat: Otsu vs median_offset,median_offset,A_002.jpg,A,dev,0.0,0.0,0.0,0.0,1178,0,False,0.157
+Ambang cacat: Otsu vs median_offset,median_offset,A_003.jpg,A,dev,0.1485,0.2585,1.0,0.1485,875,5894,True,0.1373
+Ambang cacat: Otsu vs median_offset,median_offset,A_004.jpg,A,dev,0.0,0.0,0.0,0.0,0,55260,True,0.1262
+Ambang cacat: Otsu vs median_offset,median_offset,A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1328
+Ambang cacat: Otsu vs median_offset,median_offset,A_006.jpg,A,dev,0.0,0.0,0.0,0.0,0,11464,True,0.1564
+Ambang cacat: Otsu vs median_offset,median_offset,A_007.jpg,A,dev,0.0,0.0,0.0,0.0,0,16358,True,0.0969
+Ambang cacat: Otsu vs median_offset,median_offset,A_008.jpg,A,dev,0.002,0.0039,0.0046,0.0034,14041,18635,True,0.1071
+Ambang cacat: Otsu vs median_offset,median_offset,A_009.jpg,A,dev,0.0,0.0,0.0,0.0,314,0,False,0.1415
+Ambang cacat: Otsu vs median_offset,median_offset,A_010.jpg,A,dev,0.4077,0.5792,0.9986,0.4079,7040,17235,True,0.1296
+Ambang cacat: Otsu vs median_offset,median_offset,A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.0981
+Ambang cacat: Otsu vs median_offset,median_offset,A_012.jpg,A,dev,0.0,0.0,0.0,0.0,0,21273,True,0.12
+Ambang cacat: Otsu vs median_offset,median_offset,B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.0989
+Ambang cacat: Otsu vs median_offset,median_offset,B_002.jpg,B,dev,0.2829,0.4411,0.9975,0.2831,4078,14368,True,0.1059
+Ambang cacat: Otsu vs median_offset,median_offset,B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.1295
+Ambang cacat: Otsu vs median_offset,median_offset,B_004.jpg,B,dev,0.0,0.0,0.0,0.0,0,3844,True,0.1487
+Ambang cacat: Otsu vs median_offset,median_offset,B_005.jpg,B,dev,0.0,0.0,0.0,0.0,0,1671,True,0.1238
+Ambang cacat: Otsu vs median_offset,median_offset,B_006.jpg,B,dev,0.0704,0.1315,0.6502,0.0731,486,4321,True,0.1379
+Ambang cacat: Otsu vs median_offset,median_offset,B_007.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1256
+Ambang cacat: Otsu vs median_offset,median_offset,B_008.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1675
+Ambang cacat: Otsu vs median_offset,median_offset,B_009.jpg,B,dev,0.0,0.0,0.0,0.0,0,19996,True,0.1221
+Ambang cacat: Otsu vs median_offset,median_offset,C_001.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1345
+Ambang cacat: Otsu vs median_offset,median_offset,C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1786
+Ambang cacat: Otsu vs median_offset,median_offset,C_003.jpg,C,dev,0.0,0.0,0.0,0.0,0,1740,True,0.1603
+Ambang cacat: Otsu vs median_offset,median_offset,C_004.jpg,C,dev,0.0,0.0,0.0,0.0,0,1379,True,0.1317
+Ambang cacat: Otsu vs median_offset,median_offset,C_005.jpg,C,dev,0.0,0.0,0.0,0.0,0,489,True,0.1268
+Ambang cacat: Otsu vs median_offset,median_offset,C_006.jpg,C,dev,0.0,0.0,0.0,0.0,0,2399,True,0.1322
+Ambang cacat: Otsu vs median_offset,median_offset,C_007.jpg,C,dev,0.0,0.0,0.0,0.0,0,83113,True,0.1221
+Ambang cacat: Otsu vs median_offset,median_offset,C_008.jpg,C,dev,0.0,0.0,0.0,0.0,0,10244,True,0.1251
+Ambang cacat: Otsu vs median_offset,median_offset,C_009.jpg,C,dev,0.0,0.0,0.0,0.0,0,444,True,0.1242
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,4708,0,False,0.1044
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_002.jpg,A,dev,0.0,0.0,0.0,0.0,1178,0,False,0.1629
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_003.jpg,A,dev,0.1485,0.2585,1.0,0.1485,875,5894,True,0.1445
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_004.jpg,A,dev,0.0,0.0,0.0,0.0,0,55260,True,0.1232
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1687
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_006.jpg,A,dev,0.0,0.0,0.0,0.0,0,11464,True,0.1288
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_007.jpg,A,dev,0.0,0.0,0.0,0.0,0,16358,True,0.0983
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_008.jpg,A,dev,0.002,0.0039,0.0046,0.0034,14041,18635,True,0.1052
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_009.jpg,A,dev,0.0,0.0,0.0,0.0,314,0,False,0.1302
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_010.jpg,A,dev,0.4077,0.5792,0.9986,0.4079,7040,17235,True,0.1419
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.0979
+Ambang cacat: Otsu vs median_offset,gabungan a_star,A_012.jpg,A,dev,0.0,0.0,0.0,0.0,0,21273,True,0.1285
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_002.jpg,B,dev,0.2829,0.4411,0.9975,0.2831,4078,14368,True,0.1022
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.1299
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_004.jpg,B,dev,0.0,0.0,0.0,0.0,0,3844,True,0.1262
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_005.jpg,B,dev,0.0,0.0,0.0,0.0,0,1671,True,0.1219
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_006.jpg,B,dev,0.0704,0.1315,0.6502,0.0731,486,4321,True,0.1382
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_007.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1245
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_008.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1504
+Ambang cacat: Otsu vs median_offset,gabungan a_star,B_009.jpg,B,dev,0.0,0.0,0.0,0.0,0,19996,True,0.1005
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_001.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1557
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1287
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_003.jpg,C,dev,0.0,0.0,0.0,0.0,0,1740,True,0.132
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_004.jpg,C,dev,0.0,0.0,0.0,0.0,0,1379,True,0.1279
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_005.jpg,C,dev,0.0,0.0,0.0,0.0,0,489,True,0.1566
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_006.jpg,C,dev,0.0,0.0,0.0,0.0,0,2399,True,0.1354
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_007.jpg,C,dev,0.0,0.0,0.0,0.0,0,83113,True,0.1214
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_008.jpg,C,dev,0.0,0.0,0.0,0.0,0,10244,True,0.124
+Ambang cacat: Otsu vs median_offset,gabungan a_star,C_009.jpg,C,dev,0.0,0.0,0.0,0.0,0,444,True,0.122
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,4708,0,False,0.1101
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_002.jpg,A,dev,0.0,0.0,0.0,0.0,1178,0,False,0.1318
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_003.jpg,A,dev,0.1485,0.2585,1.0,0.1485,875,5894,True,0.1405
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_004.jpg,A,dev,0.0,0.0,0.0,0.0,0,55260,True,0.1283
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1381
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_006.jpg,A,dev,0.0,0.0,0.0,0.0,0,11464,True,0.1234
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_007.jpg,A,dev,0.0,0.0,0.0,0.0,0,16358,True,0.0969
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_008.jpg,A,dev,0.002,0.0039,0.0046,0.0034,14041,18635,True,0.1072
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_009.jpg,A,dev,0.0,0.0,0.0,0.0,314,0,False,0.1315
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_010.jpg,A,dev,0.4077,0.5792,0.9986,0.4079,7040,17235,True,0.1289
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.098
+Fitur cacat: a* vs hue vs hue_abs,a_star,A_012.jpg,A,dev,0.0,0.0,0.0,0.0,0,21273,True,0.1523
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1007
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_002.jpg,B,dev,0.2829,0.4411,0.9975,0.2831,4078,14368,True,0.1148
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.1451
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_004.jpg,B,dev,0.0,0.0,0.0,0.0,0,3844,True,0.1353
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_005.jpg,B,dev,0.0,0.0,0.0,0.0,0,1671,True,0.1283
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_006.jpg,B,dev,0.0704,0.1315,0.6502,0.0731,486,4321,True,0.138
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_007.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1277
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_008.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.1507
+Fitur cacat: a* vs hue vs hue_abs,a_star,B_009.jpg,B,dev,0.0,0.0,0.0,0.0,0,19996,True,0.099
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_001.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1328
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1285
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_003.jpg,C,dev,0.0,0.0,0.0,0.0,0,1740,True,0.1363
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_004.jpg,C,dev,0.0,0.0,0.0,0.0,0,1379,True,0.1276
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_005.jpg,C,dev,0.0,0.0,0.0,0.0,0,489,True,0.1256
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_006.jpg,C,dev,0.0,0.0,0.0,0.0,0,2399,True,0.1341
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_007.jpg,C,dev,0.0,0.0,0.0,0.0,0,83113,True,0.1505
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_008.jpg,C,dev,0.0,0.0,0.0,0.0,0,10244,True,0.125
+Fitur cacat: a* vs hue vs hue_abs,a_star,C_009.jpg,C,dev,0.0,0.0,0.0,0.0,0,444,True,0.1244
+Fitur cacat: a* vs hue vs hue_abs,hue,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,4167,0,False,0.1012
+Fitur cacat: a* vs hue vs hue_abs,hue,A_002.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1284
+Fitur cacat: a* vs hue vs hue_abs,hue,A_003.jpg,A,dev,0.0,0.0,0.0,0.0,0,5894,True,0.1475
+Fitur cacat: a* vs hue vs hue_abs,hue,A_004.jpg,A,dev,0.0,0.0,0.0,0.0,0,55260,True,0.1306
+Fitur cacat: a* vs hue vs hue_abs,hue,A_005.jpg,A,dev,0.0,0.0,0.0,0.0,2083,0,False,0.142
+Fitur cacat: a* vs hue vs hue_abs,hue,A_006.jpg,A,dev,0.0,0.0,0.0,0.0,0,11464,True,0.1569
+Fitur cacat: a* vs hue vs hue_abs,hue,A_007.jpg,A,dev,0.0,0.0,0.0,0.0,0,16358,True,0.143
+Fitur cacat: a* vs hue vs hue_abs,hue,A_008.jpg,A,dev,0.0,0.0,0.0,0.0,11628,18635,True,0.1172
+Fitur cacat: a* vs hue vs hue_abs,hue,A_009.jpg,A,dev,0.0,0.0,0.0,0.0,648,0,False,0.1293
+Fitur cacat: a* vs hue vs hue_abs,hue,A_010.jpg,A,dev,0.0169,0.0333,0.0526,0.0243,7962,17235,True,0.1323
+Fitur cacat: a* vs hue vs hue_abs,hue,A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.0997
+Fitur cacat: a* vs hue vs hue_abs,hue,A_012.jpg,A,dev,0.0,0.0,0.0,0.0,0,21273,True,0.1176
+Fitur cacat: a* vs hue vs hue_abs,hue,B_001.jpg,B,dev,0.0,0.0,0.0,0.0,2624,0,False,0.099
+Fitur cacat: a* vs hue vs hue_abs,hue,B_002.jpg,B,dev,0.4291,0.6006,0.6185,0.5837,13559,14368,True,0.1009
+Fitur cacat: a* vs hue vs hue_abs,hue,B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.1271
+Fitur cacat: a* vs hue vs hue_abs,hue,B_004.jpg,B,dev,0.0,0.0,0.0,0.0,0,3844,True,0.1245
+Fitur cacat: a* vs hue vs hue_abs,hue,B_005.jpg,B,dev,0.0,0.0,0.0,0.0,0,1671,True,0.1212
+Fitur cacat: a* vs hue vs hue_abs,hue,B_006.jpg,B,dev,0.1062,0.192,0.1943,0.1898,4221,4321,True,0.1349
+Fitur cacat: a* vs hue vs hue_abs,hue,B_007.jpg,B,dev,0.0,0.0,0.0,0.0,6058,0,False,0.1313
+Fitur cacat: a* vs hue vs hue_abs,hue,B_008.jpg,B,dev,0.0,0.0,0.0,0.0,5603,0,False,0.1477
+Fitur cacat: a* vs hue vs hue_abs,hue,B_009.jpg,B,dev,0.0,0.0,0.0,0.0,0,19996,True,0.0935
+Fitur cacat: a* vs hue vs hue_abs,hue,C_001.jpg,C,dev,0.0,0.0,0.0,0.0,15871,0,False,0.1602
+Fitur cacat: a* vs hue vs hue_abs,hue,C_002.jpg,C,dev,0.0,0.0,0.0,0.0,313,0,False,0.1528
+Fitur cacat: a* vs hue vs hue_abs,hue,C_003.jpg,C,dev,0.4277,0.5991,0.8636,0.4586,924,1740,True,0.135
+Fitur cacat: a* vs hue vs hue_abs,hue,C_004.jpg,C,dev,0.0989,0.18,0.1076,0.5511,7065,1379,True,0.1495
+Fitur cacat: a* vs hue vs hue_abs,hue,C_005.jpg,C,dev,0.0,0.0,0.0,0.0,0,489,True,0.1263
+Fitur cacat: a* vs hue vs hue_abs,hue,C_006.jpg,C,dev,0.5949,0.746,0.6527,0.8704,3199,2399,True,0.1299
+Fitur cacat: a* vs hue vs hue_abs,hue,C_007.jpg,C,dev,0.0015,0.003,0.0769,0.0015,1639,83113,True,0.1233
+Fitur cacat: a* vs hue vs hue_abs,hue,C_008.jpg,C,dev,0.6042,0.7533,0.6606,0.8762,13588,10244,True,0.1277
+Fitur cacat: a* vs hue vs hue_abs,hue,C_009.jpg,C,dev,0.0,0.0,0.0,0.0,1423,444,True,0.1266
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_001.jpg,A,dev,0.0,0.0,0.0,0.0,3697,0,False,0.1011
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_002.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1353
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_003.jpg,A,dev,0.8023,0.8903,0.974,0.8198,4961,5894,True,0.1332
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_004.jpg,A,dev,0.9272,0.9622,0.9429,0.9823,57569,55260,True,0.152
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1274
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_006.jpg,A,dev,0.3683,0.5383,0.3777,0.9365,28424,11464,True,0.1321
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_007.jpg,A,dev,0.3674,0.5374,0.5797,0.5009,14136,16358,True,0.0961
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_008.jpg,A,dev,0.4791,0.6479,0.5172,0.8668,31227,18635,True,0.1033
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_009.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1408
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_010.jpg,A,dev,0.8899,0.9417,0.9664,0.9183,16377,17235,True,0.1435
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.0969
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),A_012.jpg,A,dev,0.7844,0.8792,0.9796,0.7974,17317,21273,True,0.1203
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.0958
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_002.jpg,B,dev,0.0561,0.1062,1.0,0.0561,806,14368,True,0.1006
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.1233
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_004.jpg,B,dev,0.0992,0.1805,0.1124,0.4589,15699,3844,True,0.127
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_005.jpg,B,dev,0.2939,0.4543,0.4508,0.4578,1697,1671,True,0.1262
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_006.jpg,B,dev,0.328,0.494,0.5564,0.4441,3449,4321,True,0.1419
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_007.jpg,B,dev,0.0,0.0,0.0,0.0,6058,0,False,0.1267
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_008.jpg,B,dev,0.0,0.0,0.0,0.0,3281,0,False,0.1536
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),B_009.jpg,B,dev,0.8449,0.9159,0.9172,0.9147,19943,19996,True,0.1001
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_001.jpg,C,dev,0.0,0.0,0.0,0.0,8972,0,False,0.1326
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1243
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_003.jpg,C,dev,0.4344,0.6057,0.4589,0.8908,3378,1740,True,0.1348
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_004.jpg,C,dev,0.1333,0.2352,0.2741,0.2059,1036,1379,True,0.1333
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_005.jpg,C,dev,0.1084,0.1956,0.1096,0.91,4060,489,True,0.1259
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_006.jpg,C,dev,0.5768,0.7316,0.6284,0.8754,3342,2399,True,0.1365
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_007.jpg,C,dev,0.9521,0.9755,0.9706,0.9804,83954,83113,True,0.1208
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_008.jpg,C,dev,0.6358,0.7774,0.6639,0.9376,14467,10244,True,0.1296
+Fitur cacat: a* vs hue vs hue_abs,hue_abs(default),C_009.jpg,C,dev,0.0,0.0,0.0,0.0,928,444,True,0.1225
+Ambang hue_abs (hue_thr),hue_thr=25,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,3268,0,False,0.1004
+Ambang hue_abs (hue_thr),hue_thr=25,A_002.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1509
+Ambang hue_abs (hue_thr),hue_thr=25,A_003.jpg,A,dev,0.2674,0.422,1.0,0.2674,1576,5894,True,0.1345
+Ambang hue_abs (hue_thr),hue_thr=25,A_004.jpg,A,dev,0.9273,0.9623,0.9431,0.9823,57561,55260,True,0.137
+Ambang hue_abs (hue_thr),hue_thr=25,A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1566
+Ambang hue_abs (hue_thr),hue_thr=25,A_006.jpg,A,dev,0.4343,0.6056,0.4753,0.8343,20123,11464,True,0.1281
+Ambang hue_abs (hue_thr),hue_thr=25,A_007.jpg,A,dev,0.0946,0.1728,0.8933,0.0957,1752,16358,True,0.0977
+Ambang hue_abs (hue_thr),hue_thr=25,A_008.jpg,A,dev,0.0154,0.0303,0.0341,0.0272,14867,18635,True,0.1028
+Ambang hue_abs (hue_thr),hue_thr=25,A_009.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1227
+Ambang hue_abs (hue_thr),hue_thr=25,A_010.jpg,A,dev,0.6965,0.8211,0.9896,0.7017,12220,17235,True,0.1353
+Ambang hue_abs (hue_thr),hue_thr=25,A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.0941
+Ambang hue_abs (hue_thr),hue_thr=25,A_012.jpg,A,dev,0.7844,0.8792,0.9796,0.7974,17317,21273,True,0.1353
+Ambang hue_abs (hue_thr),hue_thr=25,B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.0965
+Ambang hue_abs (hue_thr),hue_thr=25,B_002.jpg,B,dev,0.0,0.0,0.0,0.0,0,14368,True,0.0957
+Ambang hue_abs (hue_thr),hue_thr=25,B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.1265
+Ambang hue_abs (hue_thr),hue_thr=25,B_004.jpg,B,dev,0.1304,0.2307,0.1954,0.2817,5543,3844,True,0.1254
+Ambang hue_abs (hue_thr),hue_thr=25,B_005.jpg,B,dev,0.0376,0.0724,0.1984,0.0443,373,1671,True,0.1445
+Ambang hue_abs (hue_thr),hue_thr=25,B_006.jpg,B,dev,0.2104,0.3477,0.6009,0.2446,1759,4321,True,0.1375
+Ambang hue_abs (hue_thr),hue_thr=25,B_007.jpg,B,dev,0.0,0.0,0.0,0.0,4329,0,False,0.1224
+Ambang hue_abs (hue_thr),hue_thr=25,B_008.jpg,B,dev,0.0,0.0,0.0,0.0,2883,0,False,0.1377
+Ambang hue_abs (hue_thr),hue_thr=25,B_009.jpg,B,dev,0.7532,0.8592,0.9096,0.8141,17895,19996,True,0.1091
+Ambang hue_abs (hue_thr),hue_thr=25,C_001.jpg,C,dev,0.0,0.0,0.0,0.0,6678,0,False,0.2069
+Ambang hue_abs (hue_thr),hue_thr=25,C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1509
+Ambang hue_abs (hue_thr),hue_thr=25,C_003.jpg,C,dev,0.4488,0.6195,0.5327,0.7402,2418,1740,True,0.1307
+Ambang hue_abs (hue_thr),hue_thr=25,C_004.jpg,C,dev,0.0,0.0,0.0,0.0,0,1379,True,0.163
+Ambang hue_abs (hue_thr),hue_thr=25,C_005.jpg,C,dev,0.1938,0.3246,0.2062,0.7628,1809,489,True,0.1398
+Ambang hue_abs (hue_thr),hue_thr=25,C_006.jpg,C,dev,0.659,0.7945,0.7754,0.8145,2520,2399,True,0.132
+Ambang hue_abs (hue_thr),hue_thr=25,C_007.jpg,C,dev,0.9553,0.9771,0.9783,0.9759,82906,83113,True,0.1211
+Ambang hue_abs (hue_thr),hue_thr=25,C_008.jpg,C,dev,0.6526,0.7898,0.7189,0.8762,12486,10244,True,0.1232
+Ambang hue_abs (hue_thr),hue_thr=25,C_009.jpg,C,dev,0.0,0.0,0.0,0.0,566,444,True,0.1219
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_001.jpg,A,dev,0.0,0.0,0.0,0.0,3697,0,False,0.1027
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_002.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1258
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_003.jpg,A,dev,0.8023,0.8903,0.974,0.8198,4961,5894,True,0.1285
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_004.jpg,A,dev,0.9272,0.9622,0.9429,0.9823,57569,55260,True,0.1239
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1619
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_006.jpg,A,dev,0.3683,0.5383,0.3777,0.9365,28424,11464,True,0.1353
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_007.jpg,A,dev,0.3674,0.5374,0.5797,0.5009,14136,16358,True,0.1019
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_008.jpg,A,dev,0.4791,0.6479,0.5172,0.8668,31227,18635,True,0.1047
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_009.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.13
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_010.jpg,A,dev,0.8899,0.9417,0.9664,0.9183,16377,17235,True,0.1264
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_011.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.0952
+Ambang hue_abs (hue_thr),hue_thr=30(default),A_012.jpg,A,dev,0.7844,0.8792,0.9796,0.7974,17317,21273,True,0.1484
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.0996
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_002.jpg,B,dev,0.0561,0.1062,1.0,0.0561,806,14368,True,0.1142
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_003.jpg,B,dev,0.0,0.0,0.0,0.0,0,1190,True,0.148
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_004.jpg,B,dev,0.0992,0.1805,0.1124,0.4589,15699,3844,True,0.1246
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_005.jpg,B,dev,0.2939,0.4543,0.4508,0.4578,1697,1671,True,0.132
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_006.jpg,B,dev,0.328,0.494,0.5564,0.4441,3449,4321,True,0.1474
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_007.jpg,B,dev,0.0,0.0,0.0,0.0,6058,0,False,0.1254
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_008.jpg,B,dev,0.0,0.0,0.0,0.0,3281,0,False,0.1435
+Ambang hue_abs (hue_thr),hue_thr=30(default),B_009.jpg,B,dev,0.8449,0.9159,0.9172,0.9147,19943,19996,True,0.0986
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_001.jpg,C,dev,0.0,0.0,0.0,0.0,8972,0,False,0.1346
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.1388
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_003.jpg,C,dev,0.4344,0.6057,0.4589,0.8908,3378,1740,True,0.1383
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_004.jpg,C,dev,0.1333,0.2352,0.2741,0.2059,1036,1379,True,0.1282
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_005.jpg,C,dev,0.1084,0.1956,0.1096,0.91,4060,489,True,0.1276
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_006.jpg,C,dev,0.5768,0.7316,0.6284,0.8754,3342,2399,True,0.129
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_007.jpg,C,dev,0.9521,0.9755,0.9706,0.9804,83954,83113,True,0.1219
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_008.jpg,C,dev,0.6358,0.7774,0.6639,0.9376,14467,10244,True,0.1266
+Ambang hue_abs (hue_thr),hue_thr=30(default),C_009.jpg,C,dev,0.0,0.0,0.0,0.0,928,444,True,0.1225
+Ambang hue_abs (hue_thr),hue_thr=35,A_001.jpg,A,dev,0.0,0.0,0.0,0.0,4167,0,False,0.1003
+Ambang hue_abs (hue_thr),hue_thr=35,A_002.jpg,A,dev,0.0,0.0,0.0,0.0,526,0,False,0.1337
+Ambang hue_abs (hue_thr),hue_thr=35,A_003.jpg,A,dev,0.8717,0.9315,0.9168,0.9466,6085,5894,True,0.1295
+Ambang hue_abs (hue_thr),hue_thr=35,A_004.jpg,A,dev,0.9272,0.9622,0.9429,0.9823,57569,55260,True,0.1243
+Ambang hue_abs (hue_thr),hue_thr=35,A_005.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.138
+Ambang hue_abs (hue_thr),hue_thr=35,A_006.jpg,A,dev,0.3517,0.5204,0.3584,0.9496,30377,11464,True,0.125
+Ambang hue_abs (hue_thr),hue_thr=35,A_007.jpg,A,dev,0.1744,0.297,0.2104,0.5048,39251,16358,True,0.0989
+Ambang hue_abs (hue_thr),hue_thr=35,A_008.jpg,A,dev,0.5155,0.6803,0.5175,0.9929,35758,18635,True,0.1032
+Ambang hue_abs (hue_thr),hue_thr=35,A_009.jpg,A,dev,1.0,1.0,1.0,1.0,0,0,False,0.1348
+Ambang hue_abs (hue_thr),hue_thr=35,A_010.jpg,A,dev,0.8757,0.9338,0.8922,0.9793,18918,17235,True,0.1255
+Ambang hue_abs (hue_thr),hue_thr=35,A_011.jpg,A,dev,0.0,0.0,0.0,0.0,3684,0,False,0.0974
+Ambang hue_abs (hue_thr),hue_thr=35,A_012.jpg,A,dev,0.7844,0.8792,0.9796,0.7974,17317,21273,True,0.1326
+Ambang hue_abs (hue_thr),hue_thr=35,B_001.jpg,B,dev,1.0,1.0,1.0,1.0,0,0,False,0.0959
+Ambang hue_abs (hue_thr),hue_thr=35,B_002.jpg,B,dev,0.5809,0.7349,0.9921,0.5837,8453,14368,True,0.0984
+Ambang hue_abs (hue_thr),hue_thr=35,B_003.jpg,B,dev,0.1281,0.2272,0.1468,0.5017,4066,1190,True,0.1307
+Ambang hue_abs (hue_thr),hue_thr=35,B_004.jpg,B,dev,0.069,0.1291,0.0735,0.5315,27809,3844,True,0.1252
+Ambang hue_abs (hue_thr),hue_thr=35,B_005.jpg,B,dev,0.1276,0.2263,0.1355,0.6864,8465,1671,True,0.1281
+Ambang hue_abs (hue_thr),hue_thr=35,B_006.jpg,B,dev,0.4173,0.5889,0.4696,0.7894,7264,4321,True,0.1289
+Ambang hue_abs (hue_thr),hue_thr=35,B_007.jpg,B,dev,0.0,0.0,0.0,0.0,10321,0,False,0.1243
+Ambang hue_abs (hue_thr),hue_thr=35,B_008.jpg,B,dev,0.0,0.0,0.0,0.0,3742,0,False,0.1349
+Ambang hue_abs (hue_thr),hue_thr=35,B_009.jpg,B,dev,0.8449,0.9159,0.9172,0.9147,19943,19996,True,0.1125
+Ambang hue_abs (hue_thr),hue_thr=35,C_001.jpg,C,dev,0.0,0.0,0.0,0.0,126534,0,False,0.1498
+Ambang hue_abs (hue_thr),hue_thr=35,C_002.jpg,C,dev,1.0,1.0,1.0,1.0,0,0,False,0.133
+Ambang hue_abs (hue_thr),hue_thr=35,C_003.jpg,C,dev,0.1533,0.2658,0.1561,0.8931,9954,1740,True,0.1519
+Ambang hue_abs (hue_thr),hue_thr=35,C_004.jpg,C,dev,0.1549,0.2683,0.1773,0.5511,4287,1379,True,0.1722
+Ambang hue_abs (hue_thr),hue_thr=35,C_005.jpg,C,dev,0.0342,0.0661,0.0343,0.9162,13073,489,True,0.1252
+Ambang hue_abs (hue_thr),hue_thr=35,C_006.jpg,C,dev,0.4747,0.6438,0.5071,0.8816,4171,2399,True,0.1268
+Ambang hue_abs (hue_thr),hue_thr=35,C_007.jpg,C,dev,0.9464,0.9725,0.962,0.9832,84938,83113,True,0.1219
+Ambang hue_abs (hue_thr),hue_thr=35,C_008.jpg,C,dev,0.5307,0.6934,0.5411,0.965,18269,10244,True,0.1253
+Ambang hue_abs (hue_thr),hue_thr=35,C_009.jpg,C,dev,0.0008,0.0016,0.0009,0.0158,8195,444,True,0.1414
