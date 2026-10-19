@@ -1,3 +1,4 @@
+ure analysis · PY
 """
 failure_analysis.py  --  Analisis kegagalan: 3 citra TEST dengan IoU terendah.
  
@@ -15,6 +16,9 @@ menuliskan draf `penyebab` dan `usulan_perbaikan` dari angka-angka itu.
 Draf ditulis otomatis; BACA gambar di results/failure/ dan sunting CSV bila
 ada yang tidak sesuai dengan apa yang terlihat. Usulan perbaikan hanya boleh
 diuji pada data dev, bukan dipakai untuk menyetel parameter di data test.
+ 
+Catatan fitur default "hue_abs": cacat bila hue < hue_thr (default 30).
+Di result["debug"], "score" berisi kanal hue (0-180) dan "threshold" = hue_thr.
 """
 import csv
 import sys
@@ -75,41 +79,77 @@ def guess_stage(gt_area, pred_area, gt_in_leaf, m, rec_raw):
 def explain(kondisi, m, gt_area, pred_area, gt_in_leaf, rec_raw, sep, kecerahan, tahap):
     """Draf penyebab dan usulan perbaikan, disusun dari angka bukti."""
     feat = DEFAULT_PARAMS["feature"]
+    hue_abs = feat == "hue_abs"
+    thr = DEFAULT_PARAMS["hue_thr"]
+    skala = "0-180" if hue_abs else "0-255"
     gelap = (kondisi == "C") or (kecerahan == kecerahan and kecerahan < 70)
     note_gelap = (f" Citra termasuk kondisi gelap (kecerahan rata-rata daun {kecerahan:.0f}/255), "
-                  "sehingga kontras warna rendah.") if gelap else ""
+                  "sehingga kontras warna rendah"
+                  + (" dan nilai hue tidak stabil." if hue_abs else ".")) if gelap else ""
     p, r = m["precision"], m["recall"]
+ 
     if tahap.startswith("3a"):
         sebab = (f"Hanya {gt_in_leaf * 100:.0f}% area cacat (ground truth) berada di dalam mask daun, "
                  "sehingga cacat di luar mask daun mustahil terdeteksi. Penyebab umum: cacat di tepi "
-                 "daun ikut terpotong saat mask daun dibuat (Otsu pada saturasi lalu dikikis di tepi). "
+                 "daun ikut terpotong saat mask daun dibuat (Otsu pada saturasi lalu dikikis di tepi), "
+                 "atau mask daun salah memilih objek pada foto sangat gelap. "
                  "Periksa juga apakah mask ground truth sudah benar." + note_gelap)
-        usul = ("Aktifkan leaf_use_hull=True atau kecilkan leaf_border_erode agar cacat di tepi masuk "
-                "area pencarian; uji dulu pada data dev.")
+        if DEFAULT_PARAMS["leaf_use_hull"]:
+            usul = ("leaf_use_hull sudah aktif secara default. Periksa panel 'Mask daun' pada gambar; "
+                    "kalau komponen daun salah pilih, ini kelemahan segmentasi daun pada foto gelap. "
+                    "Perbaikan (mis. kecilkan leaf_border_erode) hanya boleh diuji pada data dev.")
+        else:
+            usul = ("Aktifkan leaf_use_hull=True atau kecilkan leaf_border_erode agar cacat di tepi masuk "
+                    "area pencarian; uji dulu pada data dev.")
     elif tahap.startswith("4"):
+        mda = int(DEFAULT_PARAMS["min_defect_area"])
         sebab = (f"Cacat sempat terdeteksi sebelum morfologi (recall {rec_raw:.2f}) tetapi turun menjadi "
                  f"{r:.2f} setelah morfologi, jadi opening dan pembuangan komponen kecil menghapus "
                  "cacat yang kecil atau tipis." + note_gelap)
-        usul = "Kecilkan open_ksize atau min_defect_area (mis. min_defect_area 30 menjadi 10); uji pada data dev."
+        usul = (f"Kecilkan open_ksize atau min_defect_area (mis. {mda} menjadi {max(mda // 2, 1)}); "
+                "uji pada data dev.")
     elif "tidak terdeteksi" in tahap:
-        sep_txt = (f" Pemisahan skor cacat dan daun sehat hanya {sep:.0f} (skala 0-255), artinya fitur "
-                   f"{feat} kurang membedakan cacat dari daun." if sep == sep else "")
-        sebab = (f"Cacat berada di dalam daun tetapi tidak melewati ambang (recall {r:.2f}).{sep_txt}"
-                 + note_gelap)
-        usul = (f"Turunkan ambang (otsu_offset negatif atau min_delta_a lebih kecil) atau coba feature="
-                f"{'hue' if feat == 'a_star' else 'a_star'}"
-                + ("; naikkan clahe_clip untuk memperkuat kontras" if gelap else "")
-                + ". Uji pada data dev.")
+        if hue_abs:
+            sep_txt = (f" Selisih rata-rata hue daun sehat dan area cacat hanya {sep:.0f} "
+                       f"(skala {skala}), jadi banyak piksel cacat memiliki hue di atas ambang {thr}. "
+                       "Kemungkinan cacat berwarna hijau-kekuningan di sekitar hue 30-35."
+                       if sep == sep else "")
+            sebab = (f"Cacat berada di dalam daun tetapi hue-nya tidak di bawah {thr} (recall {r:.2f})."
+                     f"{sep_txt}" + note_gelap)
+            usul = ("Periksa panel kanal hue. Kalau cacat memang berhue 30-35, menaikkan hue_thr akan "
+                    "menangkapnya tetapi berisiko menandai daun sehat sebagai cacat. Uji hanya pada data "
+                    "dev dan kabari ketua bila ada nilai yang jelas lebih baik, supaya DEFAULT_PARAMS "
+                    "diubah sebelum split test dijalankan.")
+        else:
+            sep_txt = (f" Pemisahan skor cacat dan daun sehat hanya {sep:.0f} (skala {skala}), artinya fitur "
+                       f"{feat} kurang membedakan cacat dari daun." if sep == sep else "")
+            sebab = (f"Cacat berada di dalam daun tetapi tidak melewati ambang (recall {r:.2f}).{sep_txt}"
+                     + note_gelap)
+            usul = (f"Turunkan ambang (otsu_offset negatif atau min_delta_a lebih kecil) atau coba feature="
+                    f"{'hue' if feat == 'a_star' else 'a_star'}"
+                    + ("; naikkan clahe_clip untuk memperkuat kontras" if gelap else "")
+                    + ". Uji pada data dev.")
     elif "tanpa cacat" in tahap:
         sebab = (f"Ground truth kosong (citra sehat), tetapi pipeline mendeteksi {pred_area} piksel. "
-                 "Kemungkinan bayangan, urat daun, atau variasi warna alami terbaca sebagai cacat karena "
-                 "ambang terlalu rendah. Periksa juga apakah ground truth memang kosong." + note_gelap)
-        usul = ("Naikkan min_delta_a atau otsu_offset (positif) dan min_defect_area; uji pada data dev "
-                "agar recall di citra bercacat tidak turun.")
+                 + (f"Piksel daun dengan hue di bawah {thr} terbaca sebagai cacat; kemungkinan bayangan, "
+                    "tepi daun, atau variasi warna alami. "
+                    if hue_abs else
+                    "Kemungkinan bayangan, urat daun, atau variasi warna alami terbaca sebagai cacat "
+                    "karena ambang terlalu rendah. ")
+                 + "Periksa juga apakah ground truth memang kosong." + note_gelap)
+        usul = ((f"Turunkan hue_thr (mis. dari {thr}) atau naikkan min_defect_area; " if hue_abs else
+                 "Naikkan min_delta_a atau otsu_offset (positif) dan min_defect_area; ")
+                + "uji pada data dev agar recall di citra bercacat tidak turun.")
     elif "salah terdeteksi" in tahap:
         sebab = (f"Prediksi ({pred_area} px) jauh lebih luas daripada ground truth ({gt_area} px), precision "
-                 f"{p:.2f}. Area non-cacat (bayangan, urat daun, atau tepi) ikut terdeteksi." + note_gelap)
-        usul = "Naikkan min_delta_a atau otsu_offset (positif), atau kecilkan close_ksize; uji pada data dev."
+                 f"{p:.2f}. "
+                 + (f"Area daun dengan hue di bawah {thr} (bayangan, tepi, atau daun yang memang "
+                    "kekuningan tetapi tidak dianotasi) ikut terdeteksi." if hue_abs else
+                    "Area non-cacat (bayangan, urat daun, atau tepi) ikut terdeteksi.")
+                 + note_gelap)
+        usul = ((f"Turunkan hue_thr (mis. dari {thr}) atau kecilkan close_ksize; " if hue_abs else
+                 "Naikkan min_delta_a atau otsu_offset (positif), atau kecilkan close_ksize; ")
+                + "uji pada data dev.")
     else:
         sebab = (f"Lokasi cacat sudah tepat (precision {p:.2f}, recall {r:.2f}) tetapi batasnya tidak presisi. "
                  "Wajar karena ground truth digambar manual dan batas cacat tidak tegas." + note_gelap)
@@ -130,13 +170,19 @@ def analyse(row, img, gt, res):
     gt_in_leaf = float((gtb & leaf).sum() / gt_area) if gt_area else NAN
     rec_raw = metrics.recall(raw, gtb)
  
-    # bukti tahap 2 / 3b: kecerahan daun dan pemisahan skor cacat vs daun sehat
+    # bukti tahap 2 / 3b: kecerahan daun dan pemisahan skor cacat vs daun sehat.
+    # hue_abs: cacat = hue RENDAH, jadi selisih dihitung (sehat - cacat) agar positif.
+    # a_star/hue: cacat = skor TINGGI, selisih (cacat - sehat).
     H, W = pred.shape
     score = cv2.resize(res["debug"]["score"], (W, H)).astype(np.float32)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     kecerahan = float(gray[leaf].mean()) if leaf.any() else float(gray.mean())
     a, b = score[leaf & gtb], score[leaf & ~gtb]
-    sep = float(a.mean() - b.mean()) if a.size and b.size else NAN
+    if a.size and b.size:
+        sep = float(b.mean() - a.mean()) if DEFAULT_PARAMS["feature"] == "hue_abs" \
+            else float(a.mean() - b.mean())
+    else:
+        sep = NAN
  
     tahap = guess_stage(gt_area, pred_area, gt_in_leaf, m, rec_raw)
     sebab, usul = explain(row["kondisi"], m, gt_area, pred_area, gt_in_leaf, rec_raw, sep, kecerahan, tahap)
@@ -157,19 +203,25 @@ def analyse(row, img, gt, res):
 def render(img, res, pred, gtb, title):
     H, W = img.shape[:2]
     dbg = res["debug"]
+    if DEFAULT_PARAMS["feature"] == "hue_abs":
+        score_title = f"4. Kanal hue (cacat bila hue < {dbg['threshold']:.0f})"
+        score_kw = {"cmap": "magma", "vmin": 0, "vmax": 180}
+    else:
+        score_title = f"4. Skor cacat (ambang={dbg['threshold']:.0f})"
+        score_kw = {"cmap": "magma"}
     panels = [
-        ("1. Asli", _rgb(img), None),
-        ("2. Setelah blur + CLAHE", _rgb(cv2.resize(dbg["enhanced"], (W, H))), None),
-        ("3. Mask daun", res["leaf_mask"], "gray"),
-        (f"4. Skor cacat (ambang={dbg['threshold']:.0f})", cv2.resize(dbg["score"], (W, H)), "magma"),
-        ("5. Cacat sebelum morfologi", res["debug"]["raw_defect"], "gray"),
-        ("6. Prediksi akhir", res["mask"], "gray"),
-        ("7. Ground truth", _rgb(overlay(img, gtb.astype(np.uint8) * 255, (255, 0, 255))), None),
-        ("8. Galat: hijau=benar, merah=salah, biru=terlewat", _rgb(error_map(img, pred, gtb)), None),
+        ("1. Asli", _rgb(img), {}),
+        ("2. Setelah blur + CLAHE", _rgb(cv2.resize(dbg["enhanced"], (W, H))), {}),
+        ("3. Mask daun", res["leaf_mask"], {"cmap": "gray"}),
+        (score_title, cv2.resize(dbg["score"], (W, H)), score_kw),
+        ("5. Cacat sebelum morfologi", res["debug"]["raw_defect"], {"cmap": "gray"}),
+        ("6. Prediksi akhir", res["mask"], {"cmap": "gray"}),
+        ("7. Ground truth", _rgb(overlay(img, gtb.astype(np.uint8) * 255, (255, 0, 255))), {}),
+        ("8. Galat: hijau=benar, merah=salah, biru=terlewat", _rgb(error_map(img, pred, gtb)), {}),
     ]
     fig, axes = plt.subplots(2, 4, figsize=(17, 9))
-    for ax, (name, im, cmap) in zip(axes.ravel(), panels):
-        ax.imshow(im, cmap=cmap)
+    for ax, (name, im, kw) in zip(axes.ravel(), panels):
+        ax.imshow(im, **kw)
         ax.set_title(name, fontsize=9)
         ax.axis("off")
     fig.suptitle(title, fontsize=11)
@@ -214,6 +266,10 @@ def main():
     print("\nTersimpan:", OUT_CSV.relative_to(ROOT))
     print("Catatan: 'penyebab' dan 'usulan_perbaikan' adalah draf dari angka. Cocokkan dengan "
           "gambar di results/failure/ dan sunting CSV bila perlu.")
+ 
+ 
+if __name__ == "__main__":
+    main()
  
  
 if __name__ == "__main__":
