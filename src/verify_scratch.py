@@ -12,7 +12,6 @@ from scratch_ops import otsu_threshold, apply_threshold, erode, dilate
 
 
 def waktu_ms(fungsi, *args, ulang=5):
-    """Median waktu eksekusi (ms) dari beberapa kali percobaan."""
     t = []
     for _ in range(ulang):
         t0 = time.perf_counter()
@@ -27,7 +26,6 @@ def selisih(a, b):
 
 
 def pilih_citra(meta, n):
-    """Ambil n citra dev yang tersebar merata di kondisi A/B/C."""
     dev = meta[meta["split"] == "dev"].sort_values("file")
     kondisi = sorted(dev["kondisi"].unique())
     pilihan, idx = [], 0
@@ -46,13 +44,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--k", type=int, default=5, help="ukuran elemen penstruktur (ganjil)")
     ap.add_argument("--n", type=int, default=10, help="jumlah citra uji verifikasi (min. 10)")
+    ap.add_argument("--bentuk", choices=["elips", "persegi"], default="elips",
+                    help="bentuk elemen penstruktur (pipeline memakai elips)")
     ap.add_argument("--data", default="data")
     ap.add_argument("--out", default="results")
     a = ap.parse_args()
 
     meta = pd.read_csv(os.path.join(a.data, "metadata.csv"))
     files = pilih_citra(meta, a.n)
-    kernel = np.ones((a.k, a.k), np.uint8)
+    bentuk = cv2.MORPH_ELLIPSE if a.bentuk == "elips" else cv2.MORPH_RECT
+    kernel = cv2.getStructuringElement(bentuk, (a.k, a.k))   
     os.makedirs(a.out, exist_ok=True)
 
     rows_otsu, rows_morph = [], []
@@ -71,10 +72,10 @@ def main():
                               waktu_sendiri_ms=t_own, waktu_cv2_ms=t_cv))
 
         for nama, own_fn, cv_fn in [("erosi", erode, cv2.erode), ("dilasi", dilate, cv2.dilate)]:
-            r_own, t_own = waktu_ms(own_fn, b_cv, a.k)
+            r_own, t_own = waktu_ms(own_fn, b_cv, kernel)
             r_cv, t_cv = waktu_ms(cv_fn, b_cv, kernel)
             mx, mean, n = selisih(r_own, r_cv)
-            rows_morph.append(dict(citra=f, kondisi=kond, operasi=nama, k=a.k,
+            rows_morph.append(dict(citra=f, kondisi=kond, operasi=nama, k=a.k, bentuk=a.bentuk,
                                    selisih_maks=mx, selisih_rata=mean, piksel_beda=n,
                                    waktu_sendiri_ms=t_own, waktu_cv2_ms=t_cv))
 
@@ -88,7 +89,7 @@ def main():
     print("Rata-rata:", df_o[["selisih_maks", "piksel_beda", "waktu_sendiri_ms", "waktu_cv2_ms"]]
           .mean().round(3).to_dict())
 
-    print(f"\n=== Verifikasi erosi/dilasi (k={a.k}) ===")
+    print(f"\n=== Verifikasi erosi/dilasi (k={a.k}, {a.bentuk}) ===")
     print(df_m.round(3).to_string(index=False))
     print("\nRata-rata per operasi:")
     print(df_m.groupby("operasi")[["selisih_maks", "piksel_beda", "waktu_sendiri_ms", "waktu_cv2_ms"]]
