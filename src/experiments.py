@@ -1,13 +1,4 @@
 
-"""
-experiments.py  --  Perbandingan metode. HANYA memakai data dev.
- 
-Memakai evaluate_split() milik ketua, jadi cara membaca citra, mencocokkan
-mask GT, dan menghitung metrik SAMA dengan evaluasi akhir di data test.
- 
-Jalankan dari folder utama repo:   python src/experiments.py
-Hasil: tabel di layar + results/experiments_dev.csv
-"""
 import csv
 import sys
 from pathlib import Path
